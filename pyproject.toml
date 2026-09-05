@@ -25,8 +25,8 @@ dependencies = [
     "scipy",
     "xarray",
     "netCDF4",
-    "cht_utils @ git+https://github.com/deltares-research/cht_utils.git",
-    "cht_tide @ git+https://github.com/deltares-research/cht_tide.git",
+    "cht_utils @ git+https://github.com/jprsco/cht_utils_ssph.git",
+    "cht_tide @ git+https://github.com/jprsco/cht_tide_ssph.git",
 ]
 dynamic = ["version"]
 
