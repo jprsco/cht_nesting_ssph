@@ -7,15 +7,15 @@ Station names in the his-file are stored as fixed-length bytes by the SFINCS
 Fortran kernel and are decoded automatically.
 """
 
-import os
-from typing import Any, List, Optional, Union
+# import os
+# from typing import Any, List, Optional, Union
 
-import numpy as np
-import pandas as pd
-import xarray as xr
-from cht_tide.tide_predict import predict
-from cht_utils.fileio.deltares_ini import IniStruct
-from cht_utils.physics.waves import split_waves_guza
+# import numpy as np
+# import pandas as pd
+# import xarray as xr
+# from cht_tide.tide_predict import predict
+# from cht_utils.fileio.deltares_ini import IniStruct
+# from cht_utils.physics.waves import split_waves_guza
 
 
 # def nest2_sfincs_in_sfincs(
