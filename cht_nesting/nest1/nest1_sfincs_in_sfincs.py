@@ -88,9 +88,6 @@ from pyproj import Transformer
 #         except Exception as e:
 #             print(f"Error adding nesting points batch: {e}")
 
-from pyproj import Transformer
-
-
 def nest1_sfincs_in_sfincs(overall, detail):
     
     transformer = Transformer.from_crs(detail.crs,
