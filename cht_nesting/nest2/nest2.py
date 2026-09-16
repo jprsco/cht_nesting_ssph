@@ -4,9 +4,21 @@ Reads output from the overall (coarse) model at observation point locations
 and sets boundary conditions on the detail (fine) model.
 """
 
-from typing import Any, Optional
-
 from pyproj import CRS
+
+
+from typing import Optional, Any
+
+from .nest2_delft3dfm_in_delft3dfm import nest2_delft3dfm_in_delft3dfm
+from .nest2_sfincs_in_delft3dfm import nest2_sfincs_in_delft3dfm
+from .nest2_beware_in_delft3dfm import nest2_beware_in_delft3dfm
+from .nest2_sfincs_in_sfincs import nest2_sfincs_in_sfincs
+from .nest2_xbeach_in_sfincs import nest2_xbeach_in_sfincs
+from .nest2_beware_in_sfincs import nest2_beware_in_sfincs
+from .nest2_hurrywave_in_hurrywave import nest2_hurrywave_in_hurrywave
+from .nest2_xbeach_in_hurrywave import nest2_xbeach_in_hurrywave
+from .nest2_sfincs_in_hurrywave import nest2_sfincs_in_hurrywave
+from .nest2_beware_in_hurrywave import nest2_beware_in_hurrywave
 
 
 def nest2(
@@ -68,13 +80,15 @@ def nest2(
     """
     # Overall can be a string, because we may not have the overall model as an object
     if isinstance(overall, str):
-        if overall in ("sfincs", "hydromt_sfincs"):
+        # Overall is a string, so we need to instantiate the class
+        if overall == "sfincs":
+            from cht_sfincs import SFINCS
+            overall = SFINCS()
+        elif overall == "hydromt_sfincs":
             from hydromt_sfincs import SfincsModel
-
             overall = SfincsModel()
         elif overall in ("hurrywave", "hydromt_hurrywave"):
             from hydromt_hurrywave import HurrywaveModel
-
             overall = HurrywaveModel()
         elif overall == "xbeach":
             from cht_xbeach import XBeach
